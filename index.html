@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Calculadora multifuncional con operaciones matemáticas y geometría.">
+
+    <title>Calculadora | MathLab</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <main class="app">
+
+        <header class="encabezado">
+            <div>
+                <h1>MathLab</h1>
+                <p>Tu laboratorio matemático</p>
+            </div>
+
+            <button
+                id="cambiar-tema"
+                class="boton-tema"
+                type="button"
+                aria-label="Cambiar tema"
+                aria-pressed="false">
+                🌙
+            </button>
+        </header>
+
+        <section class="calculadora">
+
+            <div class="pantalla">
+    <p class="etiqueta">OPERACIÓN</p>
+    <div id="expresion"></div>
+
+    <p class="etiqueta">RESULTADO</p>
+    <output id="resultado">0</output>
+</div>
+
+<div class="teclado">
+    <button class="tecla especial" data-accion="limpiar">AC</button>
+    <button class="tecla especial" data-accion="borrar">⌫</button>
+    <button class="tecla especial" data-accion="porcentaje">%</button>
+
+    <button class="tecla operador" data-operador="/">÷</button>
+
+    <button class="tecla" data-numero="7">7</button>
+    <button class="tecla" data-numero="8">8</button>
+    <button class="tecla" data-numero="9">9</button>
+    <button class="tecla operador" data-operador="*">×</button>
+
+    <button class="tecla" data-numero="4">4</button>
+    <button class="tecla" data-numero="5">5</button>
+    <button class="tecla" data-numero="6">6</button>
+    <button class="tecla operador" data-operador="-">−</button>
+
+    <button class="tecla" data-numero="1">1</button>
+    <button class="tecla" data-numero="2">2</button>
+    <button class="tecla" data-numero="3">3</button>
+    <button class="tecla operador" data-operador="+">+</button>
+
+    <button class="tecla" data-accion="signo">+/−</button>
+    <button class="tecla" data-numero="0">0</button>
+    <button class="tecla" data-accion="decimal">.</button>
+    <button class="tecla igual" data-accion="calcular">=</button>
+</div>-
+
+        </section>
+
+        <footer>
+            <p>Diseñado para aprender y calcular.</p>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

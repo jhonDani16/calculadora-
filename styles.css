@@ -1,0 +1,289 @@
+/* 1. Variables del diseño */
+
+:root {
+    color-scheme: light;
+
+    --fondo: #e8edf5;
+    --superficie: #e8edf5;
+    --texto: #596579;
+    --texto-secundario: #8792a4;
+    --acento: #3485e8;
+
+    --sombra-clara: #ffffff;
+    --sombra-oscura: #c5cedb;
+
+    --operador: #dce7f6;
+}
+
+/* 2. Tema oscuro */
+
+body.oscuro {
+    color-scheme: dark;
+
+    --fondo: #171c28;
+    --superficie: #202838;
+    --texto: #e5eaf3;
+    --texto-secundario: #9aa8bd;
+    --acento: #67b4ff;
+
+    --sombra-clara: #2a3548;
+    --sombra-oscura: #11151e;
+
+    --operador: #28364b;
+}
+
+/* 3. Configuración general */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 16px;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--fondo);
+    color: var(--texto);
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+button {
+    font: inherit;
+}
+
+/* 4. Contenedor principal */
+
+.app {
+    width: 100%;
+    max-width: 360px;
+    margin: auto;
+}
+
+/* 5. Encabezado */
+
+.encabezado {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 28px;
+}
+
+.encabezado h1 {
+    margin: 0;
+
+    font-size: 28px;
+    letter-spacing: 1px;
+}
+
+.encabezado p {
+    margin: 6px 0 0;
+
+    color: var(--texto-secundario);
+    font-size: 14px;
+}
+
+/* 6. Botón para cambiar el tema */
+
+.boton-tema {
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    border-radius: 50%;
+
+    color: var(--texto);
+    background: var(--superficie);
+
+    box-shadow:
+        5px 5px 10px var(--sombra-oscura),
+        -5px -5px 10px var(--sombra-clara);
+
+    cursor: pointer;
+}
+
+/* 7. Calculadora */
+
+.calculadora {
+    padding: 18px;
+
+    border-radius: 26px;
+
+    background: var(--superficie);
+
+    box-shadow:
+        10px 10px 20px var(--sombra-oscura),
+        -10px -10px 20px var(--sombra-clara);
+}
+
+/* 8. Pantalla */
+
+.pantalla {
+    min-height: 105px;
+    padding: 12px 6px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+
+    overflow: hidden;
+}
+
+.etiqueta {
+    margin: 0 0 12px;
+
+    font-size: 11px;
+    letter-spacing: 3px;
+
+    color: var(--texto-secundario);
+}
+
+#resultado {
+    max-width: 100%;
+
+    overflow-wrap: anywhere;
+    text-align: right;
+
+    font-size: clamp(30px, 8vw, 42px);
+    font-weight: 300;
+}
+
+/* 9. Teclado */
+
+.teclado {
+    display: grid;
+
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+
+    gap: 12px;
+    margin-top: 12px;
+}
+
+/* 10. Botones 3D */
+
+.tecla {
+    min-width: 0;
+    aspect-ratio: 1;
+
+    border: none;
+    border-radius: 50%;
+
+    background: var(--superficie);
+    color: var(--texto);
+
+    font-size: 20px;
+    font-weight: 500;
+
+    box-shadow:
+        5px 5px 10px var(--sombra-oscura),
+        -5px -5px 10px var(--sombra-clara);
+
+    cursor: pointer;
+
+    transition:
+        box-shadow 0.15s ease,
+        transform 0.15s ease;
+}
+
+/* 11. Efecto al pulsar */
+
+.tecla:active,
+.boton-tema:active {
+    transform: scale(0.95);
+
+    box-shadow:
+        inset 4px 4px 8px var(--sombra-oscura),
+        inset -4px -4px 8px var(--sombra-clara);
+}
+
+/* 12. Colores de las teclas */
+
+.especial {
+    color: var(--texto-secundario);
+}
+
+.operador {
+    background: var(--operador);
+    color: var(--acento);
+    font-size: 24px;
+}
+
+.igual {
+    background: var(--acento);
+    color: white;
+}
+
+/* 13. Pie de página */
+
+footer {
+    margin-top: 28px;
+
+    text-align: center;
+
+    color: var(--texto-secundario);
+    font-size: 12px;
+}
+
+/* 14. Adaptación a celulares */
+
+@media (max-width: 420px) {
+    body {
+        padding: 18px;
+    }
+
+    .calculadora {
+        padding: 18px;
+    }
+
+    .teclado {
+        gap: 12px;
+    }
+
+    .tecla {
+        font-size: 18px;
+    }
+}
+
+/* 15. Accesibilidad */
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+    /* Expresión matemática */
+
+#expresion {
+    width: 100%;
+    min-height: 28px;
+    margin-bottom: 10px;
+
+    color: var(--texto-secundario);
+    font-size: 18px;
+    text-align: right;
+
+    overflow-wrap: anywhere;
+}
+
+/* Mantener visible el resultado */
+
+#resultado {
+    display: block;
+    width: 100%;
+
+    color: var(--texto);
+    text-align: right;
+    font-size: clamp(28px, 6vw, 42px);
+}
+}
